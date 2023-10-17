@@ -8,17 +8,98 @@ import Sidenav from './Sidenav';
 const CampaignTable = () => {
   const [campaigns, setCampaigns] = useState([]);
 
-  useEffect(() => {
-    // Make a request to the API
-    fetch('http://localhost:8080/api/campaigns?page=1&query=&order_by=created_at&order=desc')
-      .then(response => response.json())
-      .then(data => setCampaigns(data.data.results))
-      .catch(error => console.error('Error:', error));
-  }, []);
-
-
-
-
+  let data = [
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+    {
+      "campaign_type": "Test Compaigns",
+      "campaign_name": "Welcome to listmonk",
+      "list": "Default list",
+      "create": "Mon, 27 Sep 2021",
+      "s_views": "2323",
+      "s_click": "1111",
+      "s_sent": "2222",
+      "s_bounces": "3333",
+    },
+  ]
 
   return (
     <>
@@ -52,6 +133,7 @@ const CampaignTable = () => {
 
 
           <section style={{ marginBottom: '30px' }}>
+
             <div className='pagenation_list'>
               <button className='list_num_btn'>1</button>
               <button className='list_first_btn' ><span class="material-symbols-outlined">chevron_left</span></button>
@@ -69,250 +151,54 @@ const CampaignTable = () => {
                 <th className='table_list_th'>Actions</th>
               </tr>
 
-
-              <tr className='table_list_border'>
-                <td className='list_name_type '><button className='list_type_single'>Draft</button></td>
-                <td>
-                  <span style={{color:'blue'}}>Test Compaigns</span>
-                  <p>Welcome to listmonk</p>
-                </td>
-                <td  className='list_name_type' style={{color:'blue'}}>Default list</td>
-                <td><div>
-                  <b>Created</b>
-                  <p>Mon, 27 Sep 2021, 21:25</p>
-                </div></td>
-                <td>
-                  <div>
-                    <div className='comp_list_det'>
-                      <p>Views</p>
-                      <span>2,222</span>
+              {data.map((element, myid) => {
+                return <tr className='table_list_border'>
+                  <td className='list_name_type '><button className='list_type_single'>Draft</button></td>
+                  <td>
+                    <span style={{ color: 'blue' }}>{element.campaign_type}</span>
+                    <p>{element.campaign_name}</p>
+                  </td>
+                  <td className='list_name_type' style={{ color: 'blue' }}>{element.list}</td>
+                  <td><div>
+                    <b>Created</b>
+                    <p>{element.create}</p>
+                  </div></td>
+                  <td>
+                    <div>
+                      <div className='comp_list_det'>
+                        <p>Views</p>
+                        <span>{element.s_views}</span>
+                      </div>
+                      <div className='comp_list_det'>
+                        <p>Clicks</p>
+                        <span>{element.s_click}</span>
+                      </div>
+                      <div className='comp_list_det'>
+                        <p>Sent</p>
+                        <span>{element.s_sent}</span>
+                      </div>
+                      <div className='comp_list_det'>
+                        <p>bounces</p>
+                        <span>{element.s_bounces}</span>
+                      </div>
                     </div>
-                    <div className='comp_list_det'>
-                      <p>Clicks</p>
-                      <span>2,222</span>
+                  </td>
+                  <td><div className='list_actions'>
+                    <div>
+
+                      <span style={{ fontSize: '18px' }} class="material-symbols-outlined">rocket_launch</span>
+                      <span style={{ fontSize: '18px' }} class="material-symbols-outlined">edit</span>
+                      <span style={{ fontSize: '18px' }} class="material-symbols-outlined">save</span>
                     </div>
-                    <div className='comp_list_det'>
-                      <p>Sent</p>
-                      <span>2,222</span>
+                    <div>
+
+                      <span style={{ fontSize: '18px' }} class="material-symbols-outlined">delete</span>
+                      <span style={{ fontSize: '18px' }} class="material-symbols-outlined">delete</span>
+                      <span style={{ fontSize: '18px' }} class="material-symbols-outlined">delete</span>
                     </div>
-                    <div className='comp_list_det'>
-                      <p>bounces</p>
-                      <span>2,222</span>
-                    </div>
-                  </div>
-                </td>
-                <td><div className='list_actions'>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">rocket_launch</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">edit</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">save</span>
-                  </div>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                  </div>
-                </div></td>
-              </tr>
-              <tr className='table_list_border'>
-                <td className='list_name_type '><button className='list_type_single'>Draft</button></td>
-                <td>
-                  <span style={{color:'blue'}}>Test Compaigns</span>
-                  <p>Welcome to listmonk</p>
-                </td>
-                <td  className='list_name_type' style={{color:'blue'}}>Default list</td>
-                <td><div>
-                  <b>Created</b>
-                  <p>Mon, 27 Sep 2021, 21:25</p>
-                </div></td>
-                <td>
-                  <div>
-                    <div className='comp_list_det'>
-                      <p>Views</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>Clicks</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>Sent</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>bounces</p>
-                      <span>2,222</span>
-                    </div>
-                  </div>
-                </td>
-                <td><div className='list_actions'>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">rocket_launch</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">edit</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">save</span>
-                  </div>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                  </div>
-                </div></td>
-              </tr>
-              <tr className='table_list_border'>
-                <td className='list_name_type '><button className='list_type_single'>Draft</button></td>
-                <td>
-                  <span style={{color:'blue'}}>Test Compaigns</span>
-                  <p>Welcome to listmonk</p>
-                </td>
-                <td  className='list_name_type' style={{color:'blue'}}>Default list</td>
-                <td><div>
-                  <b>Created</b>
-                  <p>Mon, 27 Sep 2021, 21:25</p>
-                </div></td>
-                <td>
-                  <div>
-                    <div className='comp_list_det'>
-                      <p>Views</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>Clicks</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>Sent</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>bounces</p>
-                      <span>2,222</span>
-                    </div>
-                  </div>
-                </td>
-                <td><div className='list_actions'>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">rocket_launch</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">edit</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">save</span>
-                  </div>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                  </div>
-                </div></td>
-              </tr>
-
-
-              <tr className='table_list_border'>
-                <td className='list_name_type '><button className='list_type_single'>Draft</button></td>
-                <td>
-                  <span style={{color:'blue'}}>Test Compaigns</span>
-                  <p>Welcome to listmonk</p>
-                </td>
-                <td  className='list_name_type' style={{color:'blue'}}>Default list</td>
-                <td><div>
-                  <b>Created</b>
-                  <p>Mon, 27 Sep 2021, 21:25</p>
-                </div></td>
-                <td>
-                  <div>
-                    <div className='comp_list_det'>
-                      <p>Views</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>Clicks</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>Sent</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>bounces</p>
-                      <span>2,222</span>
-                    </div>
-                  </div>
-                </td>
-                <td><div className='list_actions'>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">rocket_launch</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">edit</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">save</span>
-                  </div>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                  </div>
-                </div></td>
-              </tr>
-
-              
-              <tr className='table_list_border'>
-                <td className='list_name_type '><button className='list_type_single'>Draft</button></td>
-                <td>
-                  <span style={{color:'blue'}}>Test Compaigns</span>
-                  <p>Welcome to listmonk</p>
-                </td>
-                <td  className='list_name_type' style={{color:'blue'}}>Default list</td>
-                <td><div>
-                  <b>Created</b>
-                  <p>Mon, 27 Sep 2021, 21:25</p>
-                </div></td>
-                <td>
-                  <div>
-                    <div className='comp_list_det'>
-                      <p>Views</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>Clicks</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>Sent</p>
-                      <span>2,222</span>
-                    </div>
-                    <div className='comp_list_det'>
-                      <p>bounces</p>
-                      <span>2,222</span>
-                    </div>
-                  </div>
-                </td>
-                <td><div className='list_actions'>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">rocket_launch</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">edit</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">save</span>
-                  </div>
-                  <div>
-
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                    <span style={{fontSize:'18px'}} class="material-symbols-outlined">delete</span>
-                  </div>
-                </div></td>
-              </tr>
-
-
-             
-
-
-
-
-
-
+                  </div></td>
+                </tr>
+              })}
 
             </table>
 
@@ -321,16 +207,7 @@ const CampaignTable = () => {
               <button className='list_first_btn' ><span class="material-symbols-outlined">chevron_left</span></button>
               <button className='list_first_btn'><span class="material-symbols-outlined">chevron_right</span></button>
             </div>
-
-
           </section>
-
-
-
-
-
-
-
         </div>
       </section>
 

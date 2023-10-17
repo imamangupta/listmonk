@@ -15,6 +15,13 @@ import Analytics from '../pages/Analytics';
 import Logs from '../pages/Logs';
 import Setting from '../pages/Setting';
 import Maintenance from '../pages/Maintenance';
+import About from '../pages/About';
+import Practicesarea from '../pages/Practicesarea';
+import Gallery from '../pages/Gallery';
+import Contact from '../pages/Contact';
+import Services from '../pages/Services';
+import Whychooseus from '../pages/Whychooseus';
+import Login from '../pages/Login';
 
 
 const AppRouter = () => {
@@ -23,11 +30,29 @@ const AppRouter = () => {
       <Routes>
 
 
-        <Route path="/campaigns" element={<Campaigns/>} />
-        <Route path="/templates" element={<Templates/>} />
-
         <Route path='/' element={<>
           <Home/>
+        </>} />
+        <Route path='/about' element={<>
+          <About/>
+        </>} />
+        <Route path='/practicesarea' element={<>
+          <Practicesarea/>
+        </>} />
+        <Route path='/whychooseus' element={<>
+          <Whychooseus/>
+        </>} />
+        <Route path='/gallery' element={<>
+          <Gallery/>
+        </>} />
+        <Route path='/contact' element={<>
+          <Contact/>
+        </>} />
+        <Route path='/services' element={<>
+          <Services/>
+        </>} />
+        <Route path='/login' element={<>
+          <Login/>
         </>} />
 
 
